@@ -1,0 +1,13 @@
+{
+  "name": "covidau",
+  "bin": "index.js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "A cli for covidlive.com.au",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cli-table3": "^0.6.0",
+    "scrape-it": "^5.2.3"
+  }
+}
