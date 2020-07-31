@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const axios = require('axios');
 const scrapeIt = require('scrape-it');
 const Table = require('cli-table3');
 const {red, green, gray} = require('chalk');
@@ -62,9 +61,10 @@ const {red, green, gray} = require('chalk');
         ]
     });
 
+    let rows = [];
     data.root.forEach((ii, index) => {
         const title = index === 0 ? 'National' : ii.name.replace(' Cases', '');
-        table.push(
+        rows.push(
             [title]
                 .concat(
                     ii.rows.map(({change}, index) => {
@@ -77,5 +77,11 @@ const {red, green, gray} = require('chalk');
                 .concat(ii.rows[ii.rows.length - 1].total)
         );
     });
+    rows.sort(
+        (aa, bb) =>
+            parseInt(bb[bb.length - 2].replace(',', '')) -
+            parseInt(aa[aa.length - 2].replace(',', ''))
+    );
+    table.push(...rows);
     console.log(table.toString());
 })().catch((e) => console.error(e));
