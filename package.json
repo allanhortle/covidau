@@ -2,6 +2,7 @@
   "name": "covidau",
   "bin": "index.js",
   "version": "1.0.0",
+  "repository": "git@github.com:allanhortle/covidau.git",
   "main": "index.js",
   "license": "MIT",
   "description": "A cli for covidlive.com.au",
